@@ -12,9 +12,9 @@ Sales Discount Workflowe
 
 """,
     'website': 'https://cloud.wrltd.ca',
-    'depends': ['base_setup','sale', 'sales_team'],
+    'depends': ['base_setup','sale', 'sales_team', 'sale_stock'],
     'data': [
-        'views/res_user_views.xml',
+        'views/res_users_views.xml',
         'views/sale_view.xml',
     ],    
     'installable': True,
