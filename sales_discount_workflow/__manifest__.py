@@ -16,6 +16,7 @@ Sales Discount Workflowe
     'data': [
         'views/res_users_views.xml',
         'views/sales_views.xml',
+        'data/mail_template.xml',
     ],    
     'installable': True,
     'auto_install': False,
