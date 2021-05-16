@@ -15,7 +15,7 @@ Sales Discount Workflowe
     'depends': ['base_setup','sale', 'sales_team', 'sale_stock'],
     'data': [
         'views/res_users_views.xml',
-        'views/sale_view.xml',
+        'views/sales_views.xml',
     ],    
     'installable': True,
     'auto_install': False,
