@@ -5,18 +5,22 @@
         <record id="email_template_sale_approval_mail" model="mail.template">
             <field name="name">Sale order Approval Notification</field>
             <field name="email_from">${object.user_id.email or ''}</field>
-            <field name="subject">Sale Order Approval Request}</field>
+            <field name="subject">Sale Order Approval Request - ${object.name}</field>
             <field name="email_to">${object.can_approve_user_id.email}</field>
-            <field name="model_id" ref="sale.order"/>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="user_signature" eval="True"/>
             <field name="auto_delete" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Dear <t t-esc="object.can_approve_user_id.name"/>,</p>
-                <p>You have been requested to approve the sales order <t t-esc="object._description.lower()"/> <t t-esc="object.name_get()[0][1]"/>.</p>
+                <p>Dear ${object.can_approve_user_id.name},</p>
+                <p></p>
+                <p>You have been requested to approve the sales order ${object.name or 'n/a'}.</p>
                 <p>
-                    <a t-att-href="'/mail/view?model=%s&amp;res_id=%s' % (object._name, object.id)" style="background-color: #9E588B; margin-top: 10px; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;">
-                        View <t t-esc="object._description.lower()"/>
+                    <a href='/mail/view?model=sale.order&amp;res_id=${object.id}'
+                        style="background-color: #9E588B; margin-top: 10px; padding: 10px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 16px;">
+                        View Order
                     </a>
                 </p>
+                <p></p>
                 <p style="color:#9E588B;">Powered by <a href="https://cloud.wrltd.ca">adhoc</a>.</p>
                 ]]></field>
         </record>

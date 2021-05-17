@@ -15,4 +15,4 @@ class Users(models.Model):
     _inherit = "res.users"
     
     sale_order_can_approve = fields.Selection([('yes', 'Yes'), ('no', 'No')], 'Can Approve Sale?',default='no')
-    discount_limit = fields.Float(string='Discount (%)', digits=dp.get_precision('Discount'), default=0.0)
+    discount_limit = fields.Float(string='Discount (%)', digits=dp.get_precision('Discount'), default=0.0, copy=False)
